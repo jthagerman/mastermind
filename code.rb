@@ -32,6 +32,14 @@ class Code
         return str
     end
 
+    def self.fancy_s(input)
+        str = ""
+        input.each do |x|
+            str += COLOR_LOOKUP[x] + " "
+        end
+        return str
+    end
+
     def to_s
         return @code
     end

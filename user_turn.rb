@@ -14,7 +14,7 @@ class UserTurn
 
     def get_guesses(i)
 
-        puts "colors are: r,b,g,y,w,p"
+       
         puts "Please Enter Your Guess For The #{TURNS[i-1]} Position"
         t1 = gets.chomp
         if(!Code.COLORS(t1))
@@ -22,6 +22,7 @@ class UserTurn
         end
         rescue => error
             puts "\n\ninvalid input!\n"
+            puts "colors are: r,b,g,y,w,p"
             get_guesses(i)
         else
             @user_turn.push(t1)
