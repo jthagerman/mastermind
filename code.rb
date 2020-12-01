@@ -9,6 +9,7 @@ class Code
     def initialize()
         @code = Array.new
         generateCode
+\
     end
   
     def generateCode()
@@ -23,12 +24,16 @@ class Code
         end 
     end
 
-    def to_s
+    def fancy_s
         str = ""
         @code.each do |x|
             str += COLOR_LOOKUP[x] + " "
         end
         return str
+    end
+
+    def to_s
+        return @code
     end
 
     def self.COLORS(entry)
@@ -39,9 +44,5 @@ class Code
         end
     end
 end
-
-
-x = Code.new()
-puts x
 
 

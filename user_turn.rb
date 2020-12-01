@@ -1,20 +1,15 @@
 class UserTurn
 
-    load 'code.rb'
+
 
     TURNS = ["First", "Second", "Third","Fourth"]
+    attr_reader :user_turn
 
     def initialize()
-
-       @UserTurn = Array.new()
-
+       @user_turn = Array.new()
        (1..4).each do |x|
             get_guesses(x)
-       end
-
-
-
-        
+       end 
     end
 
     def get_guesses(i)
@@ -29,20 +24,14 @@ class UserTurn
             puts "\n\ninvalid input!\n"
             get_guesses(i)
         else
-            @UserTurn.push(t1)
-
-
-
+            @user_turn.push(t1)
     end
-
-
 
     def to_s
-        @UserTurn
+        @user_turn
     end
-
 
 
 end
 
-x = UserTurn.new()
+#x = UserTurn.new()
