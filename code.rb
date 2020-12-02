@@ -9,7 +9,7 @@ class Code
     def initialize()
         @code = Array.new
         generateCode
-\
+
     end
   
     def generateCode()

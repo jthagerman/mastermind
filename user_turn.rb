@@ -35,4 +35,3 @@ class UserTurn
 
 end
 
-#x = UserTurn.new()
