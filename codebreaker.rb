@@ -3,7 +3,6 @@ class Codebreaker
     load 'code.rb'
     load 'user_turn.rb'
 
-
     def initialize()
         @turns = 11
         game()
@@ -62,15 +61,12 @@ class Codebreaker
         end
         color_match = color_match - pos_exact
 
-
         if(pos_exact != 4)
             puts "\n\nYou Guessed: #{Code.fancy_s(guess)}"
             puts secret_code.code.to_s
             puts "Matched Correct Position #{pos_exact} times"
             puts "Matched Correct Color But Not Position #{color_match} times"
         end
-
     end
-
 end
 

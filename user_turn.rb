@@ -1,7 +1,5 @@
 class UserTurn
 
-
-
     TURNS = ["First", "Second", "Third","Fourth"]
     attr_reader :user_turn
 
@@ -14,7 +12,6 @@ class UserTurn
 
     def get_guesses(i)
 
-       
         puts "Please Enter Your Guess For The #{TURNS[i-1]} Position"
         t1 = gets.chomp
         if(!Code.COLORS(t1))
@@ -31,7 +28,6 @@ class UserTurn
     def to_s
         @user_turn
     end
-
 
 end
 
