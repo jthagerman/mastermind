@@ -19,6 +19,7 @@ class Code
     end
 
     def createCode(colors)
+        @code = []
         colors.each do |x|
             @code.push(x)
         end 

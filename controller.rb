@@ -1,7 +1,8 @@
 class Controller
 
-    load 'codebreaker.rb'
-    load 'codemaker.rb'
+    require_relative 'codebreaker'
+    require_relative 'codemaker'
+    require_relative 'code'
 
     def initialize()
         puts "Welcome to Masterind!\nCreated By: John Hagerman\n\n\n"
@@ -28,10 +29,14 @@ class Controller
     def codebreaker()
         puts("Computer has generated a 4 color code")
         breaker = Codebreaker.new()
+
     end
 
     def codemaker()
         maker = Codemaker.new()
+        x = Code.new()
+        x.createCode(maker.code_array)
+        puts(x.to_s)
     end
     
 end

@@ -1,7 +1,7 @@
 class Codebreaker
 
-    load 'code.rb'
-    load 'user_turn.rb'
+    require_relative 'code'
+    require_relative 'user_turn'
 
     def initialize()
         @turns = 11
@@ -17,8 +17,9 @@ class Codebreaker
             @turns -= 1
 
             if(check_win(turn,secret_code))
-               puts "You Win!"
-               break
+                puts "The secret code was: " + Code.fancy_s(secret_code.code)
+                puts "You Win!"
+                break
             end
         end    
     end
@@ -47,26 +48,34 @@ class Codebreaker
         color_match = 0
         guess = guess.clone()
         key = secret_code.code.clone()
+        
 
         (0..3).each do |x|
             if(guess[x] == key[x])
                 pos_exact += 1
-                matches.push(key[x])
             end
         end
 
         guess.each do |x|
-            color_match += key.count(x)
-            key.delete(x)
+            if(key.count(x) > guess.count(x) )
+                color_match += guess.count(x)
+                key.delete(x)
+
+            else
+                color_match += key.count(x)
+                key.delete(x)
+            end
+        
         end
         color_match = color_match - pos_exact
 
         if(pos_exact != 4)
             puts "\n\nYou Guessed: #{Code.fancy_s(guess)}"
-            puts secret_code.code.to_s
+        #   puts secret_code.code.to_s
             puts "Matched Correct Position #{pos_exact} times"
             puts "Matched Correct Color But Not Position #{color_match} times"
         end
     end
 end
+
 
