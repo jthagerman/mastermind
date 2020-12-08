@@ -42,6 +42,63 @@ class Codebreaker
         return win   
     end
 
+    def self.check_exacts(guess,key)
+        pos_exact = 0
+        guess = guess.clone()
+        keys = key.clone()
+        
+
+        (0..3).each do |x|
+            if(guess[x] == keys[x])
+                pos_exact += 1
+            end
+        end
+
+        return pos_exact
+    end
+
+    def self.total_color_matches(guess,key)
+        color_match = 0
+        guess = guess.clone()
+        keys = key.clone()
+
+        guess.each do |x|
+            if(keys.count(x) > guess.count(x) )
+                color_match += guess.count(x)
+                keys.delete(x)
+
+            else
+                color_match += keys.count(x)
+                keys.delete(x)
+            end
+        
+        end
+        #puts color_match
+       return color_match
+
+    end
+
+    def self.check_color_matches(guess,key,exacts_matches)
+        color_match = 0
+        exacts_matches = exacts_matches
+        guess = guess.clone()
+        keys = key.clone()
+
+        guess.each do |x|
+            if(keys.count(x) > guess.count(x) )
+                color_match += guess.count(x)
+                keys.delete(x)
+
+            else
+                color_match += keys.count(x)
+                keys.delete(x)
+            end
+        
+        end
+        color_match = color_match - exacts_matches
+
+    end
+
     def check_guess(guess,secret_code)
 
         pos_exact = 0

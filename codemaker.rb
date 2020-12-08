@@ -4,24 +4,17 @@ class Codemaker
     POSITIONS = ['First', 'Second', 'Third', 'Forth']
     attr_reader :code_array
 
-
     def initialize()
         createCode()
-
     end
 
     def createCode()
-
         @code_array = []
 
         (0..3).each do |x|
-
             puts "Please Enter The Color For The #{POSITIONS[x]} Position"
-          
             code_array.push(get_color())
-        end
-
-        
+        end       
     end
     
     def get_color()
@@ -36,7 +29,6 @@ class Codemaker
 
         return color_input
     end
-
 end
 
 

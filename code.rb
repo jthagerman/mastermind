@@ -4,12 +4,10 @@ class Code
     COLORS = ['r','b','g','y','w','p']
 
     attr_reader :code
-    
-
+   
     def initialize()
         @code = Array.new
         generateCode
-
     end
   
     def generateCode()
